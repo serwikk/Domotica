@@ -1,17 +1,15 @@
 import funciones_comunes as fc
 import random as rd
-from time import sleep
-
-temperatura_min_normal = 18
-temperatura_max_normal = 23
-temperatura_min_outlier = 14
-temperatura_max_outlier = 28
-temperatura_probabilidad_outlier = 0.05
-temperatura_media_dist_normal = 20
-temperatura_desviacion_estandar = 1
-temperatura_outlier_activados = True
 
 
+(temperatura_min_normal, 
+temperatura_max_normal, 
+temperatura_min_outlier, 
+temperatura_max_outlier,
+temperatura_probabilidad_outlier,
+temperatura_media_dist_normal,
+temperatura_desviacion_estandar, 
+temperatura_outlier_activados) = fc.obtener_valores_config('sensor_temperatura')
 
 def obtener_temperatura():
 
@@ -39,6 +37,8 @@ def obtener_temperatura():
 def main():
     
     valor = obtener_temperatura()
+
+    print(valor)
 
         
 

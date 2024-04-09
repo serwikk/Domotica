@@ -1,0 +1,11 @@
+
+
+[sensor_temperatura]
+temperatura_min_normal = 18
+temperatura_max_normal = 23
+temperatura_min_outlier = 14
+temperatura_max_outlier = 28
+temperatura_probabilidad_outlier = 0.05
+temperatura_media_dist_normal = 20
+temperatura_desviacion_estandar = 1
+temperatura_outlier_activados = true

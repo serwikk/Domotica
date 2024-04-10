@@ -2,8 +2,10 @@ import random as rd
 import toml # type: ignore
 
 def obtener_valores_config(sensor):
+
+    ruta_archivo_conf = '/home/serwikk/Domotica/sensores-y-actuadores/'
     try:
-        with open('conf.toml', 'r') as file:
+        with open(f'{ruta_archivo_conf}/conf.toml', 'r') as file:
             configuracion = toml.load(file)
 
         valores_sensor = configuracion[sensor]
@@ -13,6 +15,7 @@ def obtener_valores_config(sensor):
     except Exception as e:
 
         print(f"Ha ocurrido un error de tipo: {e}") # En un futuro, cambiarlo por un registro de logs
+        raise e
 
 def generar_valor_distribucion_normal(media_dist_normal: float, desviacion_estandar: float, min_temp: float, max_temp: float) -> float:
     

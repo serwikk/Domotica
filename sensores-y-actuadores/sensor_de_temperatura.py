@@ -30,10 +30,6 @@ def obtener_temperatura():
     
     return round(temperatura, 2)
 
-
-
-
-
 def main():
     
     valor = obtener_temperatura()

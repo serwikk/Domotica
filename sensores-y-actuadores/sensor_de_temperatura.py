@@ -34,9 +34,9 @@ def main():
     
     valor = obtener_temperatura()
 
-    print(valor)
+    return valor
 
-        
+
 
 
 if __name__ == "__main__":

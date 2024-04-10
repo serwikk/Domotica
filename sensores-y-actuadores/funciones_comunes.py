@@ -1,5 +1,6 @@
 import random as rd
 import toml # type: ignore
+import csv
 
 def obtener_valores_config(sensor):
 
@@ -32,3 +33,7 @@ def generar_outlier(min_outlier: float, max_outlier: float) -> float:
 
     return rd.uniform(min_outlier, max_outlier)
 
+
+
+def registrar_en_csv(ruta, campos, dato_nuevo, modo='a'):
+    return True

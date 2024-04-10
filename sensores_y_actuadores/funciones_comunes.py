@@ -1,10 +1,10 @@
 import random as rd
 import toml # type: ignore
 import csv
-
+import os
 def obtener_valores_config(sensor):
 
-    ruta_archivo_conf = '/home/serwikk/Domotica/sensores-y-actuadores/'
+    ruta_archivo_conf = '/home/serwikk/Domotica/sensores_y_actuadores'
     try:
         with open(f'{ruta_archivo_conf}/conf.toml', 'r') as file:
             configuracion = toml.load(file)
@@ -35,5 +35,18 @@ def generar_outlier(min_outlier: float, max_outlier: float) -> float:
 
 
 
-def registrar_en_csv(ruta, campos, dato_nuevo, modo='a'):
-    return True
+def registrar_en_csv(ruta, campos, dato_nuevo):
+
+     # Verificar si el archivo ya existe
+    if not os.path.exists(ruta):
+        # Si el archivo no existe, escribir los encabezados
+        with open(ruta, 'w', newline='') as file:
+            escritor = csv.DictWriter(file, fieldnames=campos)
+            escritor.writeheader()
+        
+    with open(ruta, 'a', newline='') as file:
+        csvwriter = csv.DictWriter(file, fieldnames=campos)
+
+        csvwriter.writerow(dato_nuevo)
+
+    print("Registro guardado correctamente en", ruta)

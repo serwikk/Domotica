@@ -2,8 +2,8 @@
 # Archivos generados por IDEs
 .venv
 
-# Carpetas POC
-pruebas_de_funciones
+# Archivo para hacer pruebas
+sensores_y_actuadores/pruebas_de_codigo.py
 
 # Archivos de byte en Python
 sensores_y_actuadores/__pycache__

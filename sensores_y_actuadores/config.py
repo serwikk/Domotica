@@ -17,3 +17,4 @@ def obtener_valores_config(sensor):
         raise e
 
 (TEMPERATURA_MIN, TEMPERATURA_MAX) = obtener_valores_config('sensor_temperatura')
+(HUMEDAD_MIN, HUMEDAD_MAX) = obtener_valores_config('sensor_humedad')

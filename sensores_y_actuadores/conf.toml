@@ -5,8 +5,5 @@ temperatura_min = 17
 temperatura_max = 25
 
 [sensor_humedad]
-humedad_min_normal = 0
-humedad_max_normal = 100
-humedad_media_dist_normal = 60
-humedad_desviacion_estandar = 1
-humedad_outlier_desactivados = true
+humedad_min = 30
+humedad_max = 60

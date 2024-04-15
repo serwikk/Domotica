@@ -4,13 +4,13 @@ import os
 import math
 
 
-def generar_valor_distribucion_normal(media_dist_normal: float, desviacion_estandar: float, min_temp: float, max_temp: float) -> float:
+def generar_valor_distribucion_normal(valor_minimo: float, valor_maximo: float) -> float:
+
+    media = (valor_maximo + valor_minimo) / 2
+    desviacion = (valor_maximo - valor_minimo) / 6 # Estándar, cambiar según contexto
     
     # Generar valor con distribución normal
-    valor = rd.normalvariate(media_dist_normal, desviacion_estandar)
-
-    # Ajuste del valor entre el rango incluido
-    valor = max(min_temp, min(max_temp, valor))
+    valor = rd.normalvariate(media, desviacion)
 
     return valor
 

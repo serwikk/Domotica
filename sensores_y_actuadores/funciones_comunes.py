@@ -2,6 +2,9 @@ import random as rd
 import toml # type: ignore
 import csv
 import os
+import math
+
+
 def obtener_valores_config(sensor):
 
     ruta_archivo_conf = '/home/serwikk/Domotica/sensores_y_actuadores'
@@ -32,6 +35,17 @@ def generar_valor_distribucion_normal(media_dist_normal: float, desviacion_estan
 def generar_outlier(min_outlier: float, max_outlier: float) -> float:
 
     return rd.uniform(min_outlier, max_outlier)
+
+def generar_valor_ciclico(hora: int, valor_min: float, valor_max: float) -> float:
+
+    amplitud = (valor_max - valor_min) / 2
+    valor_medio = (valor_max + valor_min) / 2
+
+    angulo = (hora / 24) * 2 * math.pi
+
+    valor = valor_medio + amplitud * math.sin(angulo)
+
+    return round(valor, 2)
 
 
 

@@ -11,3 +11,6 @@ sensores_y_actuadores/__pycache__
 # Archivos drawio
 Arquitectura-diseño.drawio
 Arquitectura-diseño.drawio:Zone.Identifier
+
+# Archivos pendientes de desarrollar
+sensores_y_actuadores/microcontrolador.py

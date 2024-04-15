@@ -4,6 +4,11 @@ import os
 import math
 
 
+def hora_datetime_a_float(hora) -> float:
+    hora_float = hora.hour + hora.minute / 60
+
+    return round(hora_float, 2)
+
 def generar_valor_distribucion_normal(valor_minimo: float, valor_maximo: float) -> float:
 
     media = (valor_maximo + valor_minimo) / 2
@@ -12,7 +17,7 @@ def generar_valor_distribucion_normal(valor_minimo: float, valor_maximo: float) 
     # Generar valor con distribución normal
     valor = rd.normalvariate(media, desviacion)
 
-    return valor
+    return round(valor, 2)
 
 
 def generar_outlier(min_outlier: float, max_outlier: float) -> float:
@@ -20,7 +25,7 @@ def generar_outlier(min_outlier: float, max_outlier: float) -> float:
     return rd.uniform(min_outlier, max_outlier)
 
 
-def generar_valor_ciclico(hora: int, valor_min: float, valor_max: float, umbral: float = 0.7, fase: float = math.radians(170)) -> float:
+def generar_valor_ciclico(hora: float, valor_min: float, valor_max: float, umbral: float = 0.7, fase: float = math.radians(170)) -> float:
 
     amplitud = (valor_max - valor_min) / 2
     valor_medio = (valor_max + valor_min) / 2

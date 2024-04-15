@@ -1,20 +1,29 @@
 import funciones_comunes as fc
 import random as rd
 
-from config import TEMPERATURA_MIN, TEMPERATURA_MAX
+from config import TEMPERATURA_MIN, TEMPERATURA_MAX, HOY
 
 
-def obtener_temperatura(hora):
-    return fc.generar_valor_ciclico(hora, TEMPERATURA_MIN, TEMPERATURA_MAX)
+def obtener_temperatura(hora) -> float:
+
+    """
+    Obtiene la temperatura (en ºC) de la hora adjunta
+
+    Args:
+        hora (datetime): Hora sobre la que se recoge la temperatura
+
+    Returns:
+        float: Temperatura de la hora
+    """
+
+    return fc.generar_valor_ciclico(fc.hora_datetime_a_float(hora), TEMPERATURA_MIN, TEMPERATURA_MAX)
 
 
 def main():
 
-    hora = 12
-    valor = obtener_temperatura(hora)
- 
-    return valor
+    valor = obtener_temperatura(HOY)
 
+    return valor
 
 
 

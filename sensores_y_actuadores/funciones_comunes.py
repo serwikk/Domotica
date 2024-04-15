@@ -1,25 +1,8 @@
 import random as rd
-import toml # type: ignore
 import csv
 import os
 import math
 
-
-def obtener_valores_config(sensor):
-
-    ruta_archivo_conf = '/home/serwikk/Domotica/sensores_y_actuadores'
-    try:
-        with open(f'{ruta_archivo_conf}/conf.toml', 'r') as file:
-            configuracion = toml.load(file)
-
-        valores_sensor = configuracion[sensor]
-
-        return valores_sensor.values()
-
-    except Exception as e:
-
-        print(f"Ha ocurrido un error de tipo: {e}") # En un futuro, cambiarlo por un registro de logs
-        raise e
 
 def generar_valor_distribucion_normal(media_dist_normal: float, desviacion_estandar: float, min_temp: float, max_temp: float) -> float:
     
@@ -36,16 +19,21 @@ def generar_outlier(min_outlier: float, max_outlier: float) -> float:
 
     return rd.uniform(min_outlier, max_outlier)
 
-def generar_valor_ciclico(hora: int, valor_min: float, valor_max: float) -> float:
+
+def generar_valor_ciclico(hora: int, valor_min: float, valor_max: float, umbral: float = 0.7, fase: float = math.radians(170)) -> float:
 
     amplitud = (valor_max - valor_min) / 2
     valor_medio = (valor_max + valor_min) / 2
 
-    angulo = (hora / 24) * 2 * math.pi
+    angulo = (hora / 24) * 2 * math.pi - fase
 
     valor = valor_medio + amplitud * math.sin(angulo)
 
-    return round(valor, 2)
+    umbral = rd.uniform((-1) * umbral, umbral)
+    
+    valor_final = round(valor + umbral, 2)
+    
+    return valor_final
 
 
 

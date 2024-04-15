@@ -8,7 +8,7 @@ def obtener_humedad():
 def main():
     
     valor = obtener_humedad()
-    print(valor)
+    
     return valor
 
 

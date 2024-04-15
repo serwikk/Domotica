@@ -7,3 +7,7 @@ temperatura_max = 25
 [sensor_humedad]
 humedad_min = 30
 humedad_max = 60
+
+[sensor_luz]
+iluminacion_min = 0
+iluminacion_max = 2000

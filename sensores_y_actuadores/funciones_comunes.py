@@ -4,7 +4,7 @@ import os
 import math
 
 
-def hora_datetime_a_float(hora) -> float:
+def hora_datetime_a_float(hora: float) -> float:
     hora_float = hora.hour + hora.minute / 60
 
     return round(hora_float, 2)

@@ -1,0 +1,73 @@
+{
+    "tipo": "",
+    "plano": ".png",
+    "orientacion": [],
+    "direccion": {
+        "tipo_de_via": "",
+        "via": "",
+        "numero": 0,
+        "altura": 0,
+        "puerta": "",
+        "coordenadas": {
+            "latitud": 0,
+            "longitud": 0
+        },
+        "ciudad": "",
+        "codigo_postal": "",
+        "provincia": "",
+        "comunidad": "",
+        "pais": ""
+    },
+    "area_total": 0,
+    "area_total_unidad": "",
+    "numero_plantas": 0,
+    "plantas": [
+        {
+            "planta": 0,
+            "espacios": [
+                {
+                    "nombre": "",
+                    "tipo_espacio": "",
+                    "area_cantidad": 0,
+                    "area_unidad": "",
+                    "numero_ventanas": 0,
+                    "ventanas": [
+                        {
+                            "id_ventana": 0,
+                            "area_cantidad": 0,
+                            "area_unidad": "",
+                            "grosor_cantidad": 0,
+                            "grosor_unidad": "",
+                            "orientacion": ""
+                        }
+                    ] 
+                    
+                },
+                {
+                    "nombre": "",
+                    "tipo_espacio": "",
+                    "area_cantidad": 0,
+                    "area_unidad": "",
+                    "numero_ventanas": 0,
+                    "ventanas": []
+                },
+                {
+                    "nombre": "",
+                    "tipo_espacio": "",
+                    "area_cantidad": 0,
+                    "area_unidad": "",
+                    "numero_ventanas": 0,
+                    "ventanas": [] 
+                },
+                {
+                    "nombre": "",
+                    "tipo_espacio": "",
+                    "area_cantidad": 0,
+                    "area_unidad": "",
+                    "numero_ventanas": 0,
+                    "ventanas": []                   
+                }
+            ]
+    }
+    ]
+}

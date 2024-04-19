@@ -7,9 +7,11 @@ from config import TEMPERATURA_MIN, TEMPERATURA_MAX, HOY
 
 class SensorTemperatura():
 
-    def __init__(self, id, tipo):
+    def __init__(self, id, tipo, en_funcionamiento = True, unidad='c'):
         self.id = id
         self.tipo = tipo
+        self.en_funcionamiento = en_funcionamiento
+        self.unidad = unidad
 
     def obtener_temperatura(self, hora) -> float:
 
@@ -28,7 +30,7 @@ class SensorTemperatura():
 
 def main():
 
-    stemp = SensorTemperatura(id = '2324', tipo = 'sensor_temperatura')
+    sensor1 = SensorTemperatura(id = '2324', tipo = 'sensor_temperatura1')
 
 
 

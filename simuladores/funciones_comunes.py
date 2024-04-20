@@ -2,6 +2,7 @@ import random as rd
 import csv
 import os
 import math
+import string
 
 
 def hora_datetime_a_float(hora: float) -> float:
@@ -50,7 +51,16 @@ def generar_valor_ciclico(hora: float, valor_min: float, valor_max: float, umbra
     valor_final = round(valor + umbral, 2)
     
     return valor_final
+    
 
+def generar_id_aleatorio(prefijo = None, longitud=10):
+    caracteres = string.ascii_letters + string.digits
+    id_aleatorio = ''.join(rd.choices(caracteres, k=longitud))
+
+    if prefijo:
+        id_aleatorio = prefijo + id_aleatorio
+    
+    return id_aleatorio
 
 
 def registrar_en_csv(ruta, campos, dato_nuevo):

@@ -1,5 +1,3 @@
-# import funciones_comunes as fc
-import random as rd
 
 # from config import TEMPERATURA_MIN, TEMPERATURA_MAX, HOY
 
@@ -16,7 +14,7 @@ class SensorTemperatura():
     def obtener_temperatura(self, hora) -> float:
 
         """
-        Obtiene la temperatura (en ºC) de la hora adjunta
+        Obtiene la temperatura (en ºC) de la hora indicada
 
         Args:
             hora (datetime): Hora sobre la que se recoge la temperatura
@@ -26,13 +24,3 @@ class SensorTemperatura():
         """
 
         return fc.generar_valor_ciclico(fc.hora_datetime_a_float(hora), TEMPERATURA_MIN, TEMPERATURA_MAX)
-
-
-def main():
-
-    sensor1 = SensorTemperatura(id = 'temp2324', tipo = 'sensor_temperatura1')
-
-
-
-if __name__ == "__main__":
-    main()

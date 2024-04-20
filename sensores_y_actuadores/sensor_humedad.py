@@ -1,5 +1,5 @@
-import funciones_comunes as fc
-from config import HUMEDAD_MIN, HUMEDAD_MAX
+# import funciones_comunes as fc
+# from config import HUMEDAD_MIN, HUMEDAD_MAX
 
 def obtener_humedad():
 

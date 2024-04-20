@@ -24,6 +24,17 @@ def generar_outlier(min_outlier: float, max_outlier: float) -> float:
 
     return rd.uniform(min_outlier, max_outlier)
 
+def generar_valor_ciclico(hora: int, valor_min: float, valor_max: float) -> float:
+
+    amplitud = (valor_max - valor_min) / 2
+    valor_medio = (valor_max + valor_min) / 2
+
+    angulo = (hora / 24) * 2 * math.pi
+
+    valor = valor_medio + amplitud * math.sin(angulo)
+
+    return round(valor, 2)
+
 
 def generar_valor_ciclico(hora: float, valor_min: float, valor_max: float, umbral: float = 0.7, fase: float = math.radians(170)) -> float:
 

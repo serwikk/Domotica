@@ -5,7 +5,7 @@ import math
 import string
 import json
 
-########################################################################################################
+#-------------------------------------------------------------------------------------------------------
 # FUNCIONES PARA CAMBIO DE FORMATOS
 
 def hora_datetime_a_float(hora: float) -> float:
@@ -14,7 +14,7 @@ def hora_datetime_a_float(hora: float) -> float:
     return round(hora_float, 2)
 
 
-########################################################################################################
+#-------------------------------------------------------------------------------------------------------
 # FUNCIONES PARA GENERACIÓN DE VALORES
 
 def generar_valor_distribucion_normal(valor_minimo: float, valor_maximo: float) -> float:
@@ -47,8 +47,9 @@ def generar_valor_ciclico(hora: float, valor_min: float, valor_max: float, umbra
     valor_final = round(valor + umbral, 2)
     
     return valor_final
+   
     
-###########################################################################################
+#-------------------------------------------------------------------------------------------------------
 # FUNCIÓN PARA LA GENERACIÓN DE IDs
 
 def generar_id_aleatorio(prefijo = None, longitud=10):
@@ -60,7 +61,8 @@ def generar_id_aleatorio(prefijo = None, longitud=10):
     
     return id_aleatorio
 
-############################################################################################
+
+#-------------------------------------------------------------------------------------------------------
 # FUNCIONES PARA LA LECTURA Y ESCRITURA DE ARCHIVOS
 
 def registrar_en_csv(ruta, campos, dato_nuevo):

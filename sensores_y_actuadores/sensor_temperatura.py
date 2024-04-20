@@ -9,7 +9,7 @@ class SensorTemperatura(Sensor):
 
         super().__init__( id= fc.generar_id_aleatorio("temp-"), magnitud = "temperatura", en_funcionamiento = en_funcionamiento, unidad = unidad)
 
-    def obtener_temperatura(self) -> float:
+    def obtener_valor(self) -> float:
 
         """
         Obtiene la temperatura (en ºC) de la hora indicada

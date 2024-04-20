@@ -1,18 +1,10 @@
-# import funciones_comunes as fc
-# from config import HUMEDAD_MIN, HUMEDAD_MAX
+from simuladores import funciones_comunes as fc
+
+class SensorHumedad():
+
+    def __init__():
+        pass
 
 def obtener_humedad():
 
-    return fc.generar_valor_distribucion_normal(HUMEDAD_MIN, HUMEDAD_MAX)
-
-def main():
-    
-    valor = obtener_humedad()
-    
-    return valor
-
-
-
-
-if __name__ == "__main__":
-    main()
+    return fc.leer_valor_magnitud("humedad", "./espacio_inmueble/valores_espacio.json")

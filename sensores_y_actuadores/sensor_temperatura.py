@@ -1,17 +1,15 @@
-
-# from config import TEMPERATURA_MIN, TEMPERATURA_MAX, HOY
-
+from simuladores import funciones_comunes as fc
 
 
 class SensorTemperatura():
 
-    def __init__(self, id, tipo, en_funcionamiento = True, unidad='c'):
-        self.id = id
-        self.tipo = tipo
+    def __init__(self, en_funcionamiento = True, unidad='c'):
+        self.id = fc.generar_id_aleatorio("temp-")
+        self.magnitud = "temperatura"
         self.en_funcionamiento = en_funcionamiento
         self.unidad = unidad
 
-    def obtener_temperatura(self, hora) -> float:
+    def obtener_temperatura(self) -> float:
 
         """
         Obtiene la temperatura (en ºC) de la hora indicada
@@ -23,4 +21,4 @@ class SensorTemperatura():
             float: Temperatura de la hora
         """
 
-        return fc.generar_valor_ciclico(fc.hora_datetime_a_float(hora), TEMPERATURA_MIN, TEMPERATURA_MAX)
+        return fc.leer_valor_magnitud("temperatura", "./espacio_inmueble/valores_espacio.json")

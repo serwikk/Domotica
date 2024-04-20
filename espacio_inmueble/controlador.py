@@ -13,13 +13,15 @@ class Controlador():
         self.espacio = espacio
         self.id_controlador = fc.generar_id_aleatorio(f"contr-")
         self.sensores = sensores
+        self.lista_nombres_sensores = self.obtener_nombres_sensores()
+
 
     def obtener_nombres_sensores(self) -> list:
 
         lista_nombres_sensores = []
         
         for sensor in self.sensores:
-            lista_nombres_sensores.append(sensor.tipo)
+            lista_nombres_sensores.append("sensor_"+sensor.magnitud)
 
         return lista_nombres_sensores
 
@@ -42,7 +44,7 @@ class Controlador():
 
 def main():
 
-    sensor_temperatura1 = st.SensorTemperatura(id = fc.generar_id_aleatorio("temp-"), tipo = 'sensor_temperatura')
+    sensor_temperatura1 = st.SensorTemperatura()
 
     controlador = Controlador(espacio = "Habitación_1", sensores=[sensor_temperatura1])
 
@@ -50,6 +52,7 @@ def main():
 
     controlador.inicializar_valores()
 
+    sensor_temperatura1.obtener_temperatura()
 
 if __name__=="__main__":
     main()

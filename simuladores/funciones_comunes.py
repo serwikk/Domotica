@@ -3,6 +3,7 @@ import csv
 import os
 import math
 import string
+import json
 
 
 def hora_datetime_a_float(hora: float) -> float:
@@ -78,3 +79,11 @@ def registrar_en_csv(ruta, campos, dato_nuevo):
         csvwriter.writerow(dato_nuevo)
 
     print("Registro guardado correctamente en", ruta)
+
+def leer_valor_magnitud(magnitud, direccion_archivo):
+    
+    with open(direccion_archivo, 'r') as archivo:
+
+        datos = json.load(archivo)
+
+    return datos[magnitud]

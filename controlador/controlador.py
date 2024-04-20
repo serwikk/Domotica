@@ -1,4 +1,4 @@
-from sensores_y_actuadores import sensor_temperatura
+from sensores_y_actuadores import sensor_temperatura as st
 
 class Controlador():
 
@@ -7,12 +7,10 @@ class Controlador():
 
 
 
-
-
 def main():
     controlador = Controlador(espacio = "Habitación 1")
 
-    sensor_temperatura1 = sensor_temperatura.SensorTemperatura(id = '2324', tipo = 'sensor_temperatura1')
+    sensor_temperatura1 = st.SensorTemperatura(id = '2324', tipo = 'sensor_temperatura1')
 
     print(vars(sensor_temperatura1))
 

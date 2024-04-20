@@ -1,7 +1,7 @@
-import funciones_comunes as fc
+# import funciones_comunes as fc
 import random as rd
 
-from config import TEMPERATURA_MIN, TEMPERATURA_MAX, HOY
+# from config import TEMPERATURA_MIN, TEMPERATURA_MAX, HOY
 
 
 
@@ -30,7 +30,7 @@ class SensorTemperatura():
 
 def main():
 
-    sensor1 = SensorTemperatura(id = '2324', tipo = 'sensor_temperatura1')
+    sensor1 = SensorTemperatura(id = 'temp2324', tipo = 'sensor_temperatura1')
 
 
 

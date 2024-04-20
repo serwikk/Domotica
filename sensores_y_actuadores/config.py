@@ -3,7 +3,7 @@ from datetime import datetime
 
 def obtener_valores_config(sensor):
 
-    ruta_archivo_conf = '/home/serwikk/Domotica/sensores_y_actuadores'
+    ruta_archivo_conf = '/home/serwikk/Domotica/simuladores'
     try:
         with open(f'{ruta_archivo_conf}/conf.toml', 'r') as file:
             configuracion = toml.load(file)

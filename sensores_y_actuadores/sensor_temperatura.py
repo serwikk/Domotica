@@ -1,13 +1,13 @@
 from simuladores import funciones_comunes as fc
 
+from sensores_y_actuadores.sensor import Sensor
 
-class SensorTemperatura():
+
+class SensorTemperatura(Sensor):
 
     def __init__(self, en_funcionamiento = True, unidad='c'):
-        self.id = fc.generar_id_aleatorio("temp-")
-        self.magnitud = "temperatura"
-        self.en_funcionamiento = en_funcionamiento
-        self.unidad = unidad
+
+        super().__init__( id= fc.generar_id_aleatorio("temp-"), magnitud = "temperatura", en_funcionamiento = en_funcionamiento, unidad = unidad)
 
     def obtener_temperatura(self) -> float:
 

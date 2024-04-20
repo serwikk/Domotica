@@ -1,10 +1,13 @@
 from simuladores import funciones_comunes as fc
 
-class SensorHumedad():
+from sensores_y_actuadores.sensor import Sensor
 
-    def __init__():
-        pass
+class SensorHumedad(Sensor):
 
-def obtener_humedad():
+    def __init__(self, en_funcionamiento=True, unidad= "%"):
+        
+        super().__init__( id= fc.generar_id_aleatorio("hum-"), magnitud = "humedad", en_funcionamiento = en_funcionamiento, unidad = unidad)
 
-    return fc.leer_valor_magnitud("humedad", "./espacio_inmueble/valores_espacio.json")
+    def obtener_humedad(self):
+
+        return fc.leer_valor_magnitud("humedad", "./espacio_inmueble/valores_espacio.json")

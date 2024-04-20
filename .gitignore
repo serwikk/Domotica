@@ -8,6 +8,7 @@ simuladores/pruebas_de_codigo.py
 
 # Archivos de byte en Python
 sensores_y_actuadores/__pycache__
+simuladores/__pycache__
 
 # Archivos drawio
 Arquitectura-diseño.drawio

@@ -1,6 +1,6 @@
 from sensores_y_actuadores import sensor_temperatura as st, sensor_humedad as sh, sensor_luz as sl
 
-from sensores_y_actuadores.config import TEMPERATURA_MIN, TEMPERATURA_MAX, HOY, HUMEDAD_MIN, HUMEDAD_MAX
+from simuladores.config import TEMPERATURA_MIN, TEMPERATURA_MAX, HOY, HUMEDAD_MIN, HUMEDAD_MAX
 
 from simuladores import funciones_comunes as fc
 
@@ -9,7 +9,7 @@ import json
 
 class Controlador():
 
-    def __init__(self, espacio, sensores= None):
+    def __init__(self, espacio, sensores= []):
         self.espacio = espacio
         self.id_controlador = fc.generar_id_aleatorio(f"contr-")
         self.sensores = sensores
@@ -26,7 +26,7 @@ class Controlador():
         return lista_nombres_sensores
 
 
-    def inicializar_valores(self):
+    def inicializar_valores(self) -> None:
         directorio = "espacio_inmueble/"
         nombre_archivo = f"{directorio}valores_espacio.json"
 
@@ -36,23 +36,9 @@ class Controlador():
                     "luz": 1000
                 }
 
-        with open(nombre_archivo, 'w') as archivo:
-            json.dump(datos, archivo, indent=4)      
-            
-
-
-
-def main():
-
-    sensor_temperatura1 = st.SensorTemperatura()
-
-    controlador = Controlador(espacio = "Habitación_1", sensores=[sensor_temperatura1])
-
-    print(vars(controlador))
-
-    controlador.inicializar_valores()
-
-    sensor_temperatura1.obtener_temperatura()
-
-if __name__=="__main__":
-    main()
+        try:
+            with open(nombre_archivo, 'w') as archivo:
+                json.dump(datos, archivo, indent=4)      
+        
+        except:
+            raise e

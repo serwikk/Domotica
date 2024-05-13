@@ -1,0 +1,119 @@
+{
+    "tipo": "casa",
+    "plano": "plano.png",
+    "orientacion_ventanas": [90, 270, 180],
+    "direccion": {
+        "tipo_de_via": "calle",
+        "via": "Teodoro Dublang Margolaria",
+        "numero": 25,
+        "altura": 1,
+        "puerta": "A",
+        "coordenadas": {
+            "latitud": 42.84419,
+            "longitud": -2.68602
+        },
+        "ciudad": "Vitoria-Gasteiz",
+        "codigo_postal": "01008",
+        "provincia": "Álava",
+        "comunidad": "País Vasco",
+        "pais": "España"
+    },
+    "area_total": 58.25,
+    "area_total_unidad": "m2",
+    "numero_plantas": 1,
+    "plantas": [
+        {
+            "planta": 1,
+            "espacios": [
+                {
+                    "nombre": "dormitorio 1",
+                    "tipo_espacio": "dormitorio",
+                    "area_cantidad": 12.9,
+                    "area_unidad": "m2",
+                    "numero_ventanas": 1,
+                    "ventanas": [
+                        {
+                            "id_ventana": 1,
+                            "area_cantidad": 120,
+                            "area_unidad": "dm2",
+                            "grosor_cantidad": 0.6,
+                            "grosor_unidad": "mm",
+                            "orientacion": 270
+                        }
+                    ] 
+                    
+                },
+                {
+                    "nombre": "dormitorio 2",
+                    "tipo_espacio": "dormitorio",
+                    "area_cantidad": 12.9,
+                    "area_unidad": "m2",
+                    "numero_ventanas": 1,
+                    "ventanas": [
+                        {
+                            "id_ventana": 2,
+                            "area_cantidad": 120,
+                            "area_unidad": "dm2",
+                            "grosor_cantidad": 0.6,
+                            "grosor_unidad": "mm",
+                            "orientacion": 90
+                        }
+                    ] 
+                    
+                },
+                {
+                    "nombre": "baño",
+                    "tipo_espacio": "baño",
+                    "area_cantidad": 4.34,
+                    "area_unidad": "m2",
+                    "numero_ventanas": 1,
+                    "ventanas": [
+                        {
+                            "id_ventana": 3,
+                            "area_cantidad": 80,
+                            "area_unidad": "dm2",
+                            "grosor_cantidad": 0.6,
+                            "grosor_unidad": "mm",
+                            "orientacion": 270
+                        }
+                    ] 
+                    
+                },
+                {
+                    "nombre": "salón y cocina",
+                    "tipo_espacio": "área común",
+                    "area_cantidad": 28.11,
+                    "area_unidad": "m2",
+                    "numero_ventanas": 3,
+                    "ventanas": [
+                        {
+                            "id_ventana": 4,
+                            "area_cantidad": 120,
+                            "area_unidad": "dm2",
+                            "grosor_cantidad": 0.6,
+                            "grosor_unidad": "mm",
+                            "orientacion": 90
+                        },   
+                        {
+                            "id_ventana": 5,
+                            "area_cantidad": 120,
+                            "area_unidad": "dm2",
+                            "grosor_cantidad": 0.6,
+                            "grosor_unidad": "mm",
+                            "orientacion": 180
+                        },  
+                        {
+                            "id_ventana": 6,
+                            "area_cantidad": 120,
+                            "area_unidad": "dm2",
+                            "grosor_cantidad": 0.6,
+                            "grosor_unidad": "mm",
+                            "orientacion": 180
+                        }
+                    ] 
+                    
+                }
+            ]
+    }
+    ]
+}

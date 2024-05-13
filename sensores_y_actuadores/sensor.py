@@ -15,7 +15,7 @@ class Sensor:
         Obtiene el valor del sensor
 
         Returns:
-            float: Temperatura de la hora
+            float: Valor de la magnitud
         """
 
         

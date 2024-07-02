@@ -1,7 +1,17 @@
+astroid==3.2.2
+dill==0.3.8
+isort==5.13.2
+mccabe==0.7.0
 numpy==1.26.4
 pandas==2.2.2
+platformdirs==4.2.2
+pyint==1.1.0
+pylint==3.2.5
 python-dateutil==2.9.0.post0
 pytz==2024.1
 six==1.16.0
 toml==0.10.2
+tomli==2.0.1
+tomlkit==0.12.5
+typing_extensions==4.12.2
 tzdata==2024.1

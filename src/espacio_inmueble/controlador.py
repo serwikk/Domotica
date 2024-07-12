@@ -24,21 +24,3 @@ class Controlador():
             lista_nombres_sensores.append("sensor_"+sensor.magnitud)
 
         return lista_nombres_sensores
-
-
-    def inicializar_valores(self) -> None:
-        directorio = "espacio_inmueble/"
-        nombre_archivo = f"{directorio}valores_espacio.json"
-
-        datos = {
-                    "temperatura": fc.generar_valor_ciclico(fc.hora_datetime_a_float(HOY), TEMPERATURA_MIN, TEMPERATURA_MAX),
-                    "humedad": fc.generar_valor_distribucion_normal(HUMEDAD_MIN, HUMEDAD_MAX),
-                    "luz": 1000
-                }
-
-        try:
-            with open(nombre_archivo, 'w') as archivo:
-                json.dump(datos, archivo, indent=4)      
-        
-        except:
-            raise e

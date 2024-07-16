@@ -2,7 +2,7 @@ from sensores_y_actuadores import sensor_temperatura as st, sensor_humedad as sh
 
 from simuladores.config import TEMPERATURA_MIN, TEMPERATURA_MAX, HOY, HUMEDAD_MIN, HUMEDAD_MAX
 
-from simuladores import funciones_comunes as fc
+from handlers import generation_handler as fc
 
 import os
 import json

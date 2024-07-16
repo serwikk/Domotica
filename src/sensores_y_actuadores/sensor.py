@@ -1,4 +1,4 @@
-from simuladores import funciones_comunes as fc
+from handlers import generation_handler as fc
 
 
 class Sensor:

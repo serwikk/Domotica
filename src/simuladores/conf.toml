@@ -1,4 +1,5 @@
-
+[zona]
+zona = Europe/Madrid
 
 [sensor_temperatura]
 temperatura_min = 17

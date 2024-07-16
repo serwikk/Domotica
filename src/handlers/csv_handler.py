@@ -38,7 +38,7 @@ class CSVHandler:
             csv.writer(self.valores, archivo, delimiter=self.delimiter)
 
 
-    def buscar_valor_celda(self, hora, mes):
+    def buscar_valor_temperatura(self, hora, mes):
 
         for fila in self.valores:
 
@@ -55,5 +55,20 @@ class CSVHandler:
                 except Exception as e:
                     
                     self.csv_logger_handler.logger.error(e)
+
+
+
+    def buscar_valor_humedad(self, espacio: str) -> list:
+
+        for fila in self.valores:
+
+            if fila['espacio'] == espacio:
+
+                valor_min = float(fila['humedad mínima'])
+                valor_max = float(fila['humedad máxima'])
+
+                self.csv_logger_handler.logger.info(f"Obtenido los valores mínimo {valor_min} y máximo {valor_max} del espacio {espacio}")
+
+                return [valor_min, valor_max]
 
             

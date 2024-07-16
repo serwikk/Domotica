@@ -10,7 +10,7 @@ simuladores/pruebas_de_codigo.py
 sensores_y_actuadores/__pycache__
 simuladores/__pycache__
 espacio_inmueble/__pycache__
-
+__pycache__
 # Archivos drawio
 Arquitectura-diseño.drawio
 Arquitectura-diseño.drawio:Zone.Identifier

@@ -2,6 +2,9 @@ from src.handlers.csv_handler import CSVHandler
 from src.handlers.datetime_handler import DatetimeHandler
 from src.handlers import generation_handler
 
+import logging
+from src.handlers.logger_handler import LoggerHandler
+
 
 def main():
 

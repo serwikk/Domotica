@@ -8,7 +8,7 @@ class CSVHandler:
         self.ruta_archivo = ruta_archivo
         self.delimiter = ','
         self.valores = self.cargar_csv()
-        self.logger_handler = LoggerHandler('/home/serwikk/Domotica/logs/csv_handler.log', logging.INFO)
+        self.csv_logger_handler = LoggerHandler('/home/serwikk/Domotica/logs/csv_handler.log', 'csv_logger_handler', logging.INFO)
 
 
     def cargar_csv(self):
@@ -48,12 +48,12 @@ class CSVHandler:
 
                     valor_celda = fila[mes]
                 
-                    self.logger_handler.logger.info(f"Obtenido el valor {valor_celda} de la hora {hora} del mes de {mes}")
+                    self.csv_logger_handler.logger.info(f"Obtenido el valor {valor_celda} de la hora {hora} del mes de {mes}")
 
                     return float(valor_celda)
                 
                 except Exception as e:
                     
-                    self.logger_handler.logger.error(e)
+                    self.csv_logger_handler.logger.error(e)
 
             

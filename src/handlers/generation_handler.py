@@ -2,9 +2,20 @@ import random as rd
 import math
 import string
 
+import logging
+from src.handlers.logger_handler import LoggerHandler
+
+generation_logger_handler = LoggerHandler('/home/serwikk/Domotica/logs/generation_handler.log', 'generation_logger_handler' ,logging.INFO)
+
 def agregar_umbral_a_valor(valor, umbral = 1):
 
-    return round(valor + rd.uniform(umbral * -1, umbral), 2)
+    umbral_final = round(rd.uniform(umbral * -1, umbral), 2)
+
+    valor_final = round(valor + umbral_final, 2)
+
+    generation_logger_handler.logger.info(f"agregado el umbral {umbral_final} al valor {valor}, sumando el valor final de {valor_final}")
+
+    return valor_final
     
 #-------------------------------------------------------------------------------------------------------
 # FUNCIÓN PARA LA GENERACIÓN DE IDs

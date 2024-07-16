@@ -2,12 +2,13 @@ import logging
 
 class LoggerHandler:
 
-    def __init__(self, nombre_archivo, nivel):
+    def __init__(self, nombre_archivo, nombre_logger, nivel):
         self.nombre_archivo = nombre_archivo
+        self.nombre_logger = nombre_logger
         self.nivel = nivel
         
         # Crear un logger para esta instancia de LoggerHandler
-        self.logger = logging.getLogger(__name__)
+        self.logger = logging.getLogger(self.nombre_logger)
         self.logger.setLevel(self.nivel)
         
         # Crear un manejador de archivo

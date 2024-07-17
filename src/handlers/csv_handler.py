@@ -1,14 +1,25 @@
 import csv
+import os
 import logging
 from src.handlers.logger_handler import LoggerHandler
 
 class CSVHandler:
 
-    def __init__(self, ruta_archivo):
+    def __init__(self, ruta_archivo, encabezados = None, delimiter=','):
         self.ruta_archivo = ruta_archivo
-        self.delimiter = ','
+        self.delimiter = delimiter
+        self.generar_archivo(encabezados)
         self.valores = self.cargar_csv()
         self.csv_logger_handler = LoggerHandler('/home/serwikk/Domotica/logs/csv_handler.log', 'csv_logger_handler', logging.INFO)
+
+    
+    def generar_archivo(self, encabezados):
+
+        if not os.path.exists(self.ruta_archivo):
+
+            with open(self.ruta_archivo, 'w', newline='') as archivo:
+                writer = csv.writer(archivo, self.delimiter)
+                writer.writerow(encabezados)
 
 
     def cargar_csv(self):
@@ -70,5 +81,18 @@ class CSVHandler:
                 self.csv_logger_handler.logger.info(f"Obtenido los valores mínimo {valor_min} y máximo {valor_max} del espacio {espacio}")
 
                 return [valor_min, valor_max]
+            
+
+    def guardar_nuevo_valor(self, valor):
+        """
+        Guarda un nuevo valor en el CSV
+        """
+
+        with open(self.ruta_archivo, 'a') as archivo:
+            writer = csv.writer(archivo, delimiter=self.delimiter)
+            writer.writerow(valor)
+
+
+        
 
             

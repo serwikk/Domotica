@@ -2,8 +2,13 @@ import datetime
 
 class DatetimeHandler:
 
-    def __init__(self, fecha_completa = datetime.datetime.now()) -> None:
-        self.fecha_completa = fecha_completa
+    def __init__(self, fecha_completa = None) -> None:
+
+        if not fecha_completa:
+            self.fecha_completa = datetime.datetime.now()
+        else:
+            self.fecha_completa = self.fecha_string_a_datetime(fecha_completa)
+
         self.anyo = self.fecha_completa.year
         self.mes = self.fecha_completa.month
         self.dia = self.fecha_completa.day
@@ -12,8 +17,18 @@ class DatetimeHandler:
         self.segundo = self.fecha_completa.second
         self.microsegundos = self.fecha_completa.microsecond
 
+    @staticmethod
+    def fecha_string_a_datetime(fecha: str) -> datetime.datetime.strptime:
 
-    def obtener_mes_string(self) -> str:
+        return datetime.datetime.strptime(fecha, '%Y-%m-%d %H:%M:%S')
+    
+    @staticmethod
+    def fecha_cambiar_formato_fecha(fecha: str, formato: str = '%Y%m%d'):
+
+        return datetime.datetime.strptime(fecha, '%Y-%m-%d').strftime(formato)
+
+    @staticmethod
+    def obtener_mes_string(indice_mes) -> str:
 
         meses_dictionario = {
             1: 'enero',
@@ -30,4 +45,4 @@ class DatetimeHandler:
             12: 'diciembre'
         }
 
-        return meses_dictionario[self.mes]
+        return meses_dictionario[indice_mes]

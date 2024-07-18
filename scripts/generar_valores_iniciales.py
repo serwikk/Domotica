@@ -9,8 +9,8 @@ from src.handlers.logger_handler import LoggerHandler
 
 def main():
 
-    datetime_handler = DatetimeHandler()
-
+    datetime_handler = DatetimeHandler('2024-07-10 12:00:00')
+    print(f"Fecha y hora: {datetime_handler.fecha_completa}")
 
     # Temperatura
     temperatura_csv_handler = CSVHandler('src/handlers/csv/temperaturas_hora_mes_vitoria.csv')
@@ -32,7 +32,7 @@ def main():
 
     # LUX # TODO
     datos_solares = PVlibHandler()
-    print(datos_solares.obtener_valor_posicion_solar_actual(datetime_handler))
+    print(datos_solares.obtener_angulo_posicion_solar(datetime_handler))
 
     # esto devuelve el dataframe de antes. Pero ahora tengo que hacer funciones para obtener los lux dependiendo de estos parámetros 
 

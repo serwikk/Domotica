@@ -50,11 +50,12 @@ class PVlibHandler:
 
             solar_position = location.get_solarposition(time)
 
-            return solar_position
-                
+            return solar_position.to_dict('records')[0]
 
-if __name__=="__main__":
 
-    pvlib_handler = PVlibHandler()
+    def obtener_angulo_posicion_solar(self, fecha):
+        
+        datos = self.obtener_valor_posicion_solar_actual(fecha)
 
-    pvlib_handler.obtener_valores_posicion_solar_dia_completo('2024-06-21')
+
+        return datos

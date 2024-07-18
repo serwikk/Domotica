@@ -10,7 +10,7 @@ class CSVHandler:
         self.delimiter = delimiter
         self.generar_archivo(encabezados)
         self.valores = self.cargar_csv()
-        self.csv_logger_handler = LoggerHandler('/home/serwikk/Domotica/logs/csv_handler.log', 'csv_logger_handler', logging.INFO)
+        self.csv_logger_handler = LoggerHandler('logs/csv_handler.log', 'csv_logger_handler', logging.INFO)
 
     
     def generar_archivo(self, encabezados):

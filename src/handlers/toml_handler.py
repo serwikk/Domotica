@@ -65,6 +65,6 @@ class TOMLHandler:
 
 
 if __name__ == "__main__":
-    TOMLhandler = TOMLHandler(ruta_archivo="/home/serwikk/Domotica/src/info_casa/datos_actuales.toml")
+    TOMLhandler = TOMLHandler(ruta_archivo="src/info_casa/datos_actuales.toml")
 
     loggerHandler = LoggerHandler('debug.log', logging.DEBUG)

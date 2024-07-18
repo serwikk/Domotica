@@ -13,7 +13,7 @@ def main():
 
 
     # Temperatura
-    temperatura_csv_handler = CSVHandler('/home/serwikk/Domotica/src/handlers/csv/temperaturas_hora_mes_vitoria.csv')
+    temperatura_csv_handler = CSVHandler('src/handlers/csv/temperaturas_hora_mes_vitoria.csv')
 
     valor_temperatura = temperatura_csv_handler.buscar_valor_temperatura(datetime_handler.hora, DatetimeHandler.obtener_mes_string(datetime_handler.mes))
 

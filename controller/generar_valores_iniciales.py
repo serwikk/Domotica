@@ -10,11 +10,14 @@ from handlers.logger_handler import LoggerHandler
 
 def main():
 
-
     # Invocación de handlers
     datetime_handler = DatetimeHandler('2024-08-01 12:00:00')
-    loggerHandler = LoggerHandler('generation.log', 'generation.log', logging.INFO)
-    toml_handler = TOMLHandler('valores_actuales.toml', loggerHandler)
+    loggerHandler = LoggerHandler('generation.log', 'generación', logging.INFO)
+    valores_actuales_tomlHandler = TOMLHandler('valores_actuales.toml', loggerHandler)
+    config_tomlHandler = TOMLHandler('config.toml', loggerHandler)
+
+    HUSO = config_tomlHandler.obtener_valor('config', 'huso')
+    HABITACULO = config_tomlHandler.obtener_valor('config', 'habitaculo')
 
 
     print(f"Fecha y hora: {datetime_handler.fecha_completa}")
@@ -31,7 +34,7 @@ def main():
     # Humedad
     humedad_csv_handler = CSVHandler('handlers/csv/humedad_por_habitaciones.csv')
 
-    valores_espacio = humedad_csv_handler.buscar_valor_humedad('cocina')
+    valores_espacio = humedad_csv_handler.buscar_valor_humedad(HABITACULO)
 
     valor_humedad = generation_handler.generar_valor_distribucion_normal(valores_espacio[0], valores_espacio[1])
 
@@ -44,9 +47,9 @@ def main():
     # esto devuelve el dataframe de antes. Pero ahora tengo que hacer funciones para obtener los lux dependiendo de estos parámetros 
 
 
-    toml_handler.establecer_valor('valores', 'habitaculo', 'cocina')
-    toml_handler.establecer_valor('valores', 'temperatura', valor_temperatura)
-    toml_handler.establecer_valor('valores', 'humedad', valor_humedad)
+    valores_actuales_tomlHandler.establecer_valor('valores', 'habitaculo', HABITACULO)
+    valores_actuales_tomlHandler.establecer_valor('valores', 'temperatura', valor_temperatura)
+    valores_actuales_tomlHandler.establecer_valor('valores', 'humedad', valor_humedad)
 
 
 

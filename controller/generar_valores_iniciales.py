@@ -1,10 +1,10 @@
-from src.handlers.csv_handler import CSVHandler
-from src.handlers.datetime_handler import DatetimeHandler
-from src.handlers.pvlib_handler import PVlibHandler
-from src.handlers import generation_handler
+from handlers.csv_handler import CSVHandler
+from handlers.datetime_handler import DatetimeHandler
+from handlers.pvlib_handler import PVlibHandler
+from handlers import generation_handler
 
 import logging
-from src.handlers.logger_handler import LoggerHandler
+from handlers.logger_handler import LoggerHandler
 
 
 def main():

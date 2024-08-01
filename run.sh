@@ -1,5 +1,3 @@
-cd info_casa
-
 source .venv/bin/activate
 
-python localizar_datos.py
+python scripts/generar_valores_iniciales.py

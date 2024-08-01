@@ -3,9 +3,8 @@ from datetime import datetime
 
 def obtener_valores_config(sensor):
 
-    ruta_archivo_conf = 'simuladores'
     try:
-        with open(f'{ruta_archivo_conf}/conf.toml', 'r') as file:
+        with open('conf.toml', 'r') as file:
             configuracion = toml.load(file)
 
         valores_sensor = configuracion[sensor]

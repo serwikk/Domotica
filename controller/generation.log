@@ -1,0 +1,3 @@
+2024-08-01 21:35:37,255 - info.log - INFO - Clave "habitaculo" actualizada en la sección "valores" con el valor: cocina (<class 'str'>)
+2024-08-01 21:35:37,255 - info.log - INFO - Clave "temperatura" actualizada en la sección "valores" con el valor: 31.49 (<class 'float'>)
+2024-08-01 21:35:37,262 - info.log - INFO - Clave "humedad" actualizada en la sección "valores" con el valor: 45.72 (<class 'float'>)

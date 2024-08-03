@@ -1,4 +1,8 @@
 [valores]
 habitaculo = "cocina"
-temperatura = 31.7
-humedad = 47.07
+temperatura = 35.41
+humedad = 40.22
+
+[actuadores]
+persiana = 90
+luz = 0

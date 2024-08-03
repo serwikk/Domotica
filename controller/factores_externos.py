@@ -11,7 +11,7 @@ from handlers.logger_handler import LoggerHandler
 def main():
 
     # Invocación de handlers
-    datetime_handler = DatetimeHandler('2024-08-01 12:00:00')
+    datetime_handler = DatetimeHandler('2024-08-03 16:30:00')
     loggerHandler = LoggerHandler('generation.log', 'generación', logging.INFO)
     valores_actuales_tomlHandler = TOMLHandler('valores_actuales.toml', loggerHandler)
     config_tomlHandler = TOMLHandler('config.toml', loggerHandler)
@@ -42,7 +42,7 @@ def main():
 
     # LUX # TODO
     datos_solares = PVlibHandler()
-    print(datos_solares.obtener_angulo_posicion_solar(datetime_handler))
+    print(datos_solares.obtener_lux(datetime_handler, config_tomlHandler))
 
     # esto devuelve el dataframe de antes. Pero ahora tengo que hacer funciones para obtener los lux dependiendo de estos parámetros 
 

@@ -1,6 +1,7 @@
 import pvlib
 from pvlib.location import Location
 import pandas as pd
+import math
 from handlers.datetime_handler import DatetimeHandler
 from handlers.csv_handler import CSVHandler
 
@@ -53,9 +54,41 @@ class PVlibHandler:
             return solar_position.to_dict('records')[0]
 
 
-    def obtener_angulo_posicion_solar(self, fecha):
+    def obtener_lux(self, fecha, config_tomlHandler):
         
+        # Obtenemos los datos actuales de la posición solar de la fecha introducida
         datos = self.obtener_valor_posicion_solar_actual(fecha)
+        elevacion = datos['elevation']
+        azimut = datos['azimuth']
 
+        # Obtenemos la lux máxima definida en el apartado 'lux' de 'config.toml'
+        lux_max = config_tomlHandler.obtener_valor('lux', 'lux_max_cenit')
+        lux_artificial = config_tomlHandler.obtener_valor('lux', 'lux_artificial')
 
-        return datos
+        print(f"Elevación: {elevacion:.02f}º, Azimut: {azimut:.02f}º")
+
+        # Obtenemos la lux del ambiente
+        lux_ambiente = lux_max * math.sin(math.radians(elevacion))
+
+        print(f"Lux ambiente: {lux_ambiente}")
+
+        ventanas = config_tomlHandler.obtener_valores_seccion('ventanas')
+
+        print(ventanas)
+
+        grados_lux_directa = config_tomlHandler.obtener_valor('lux', 'grados_lux_directa')
+
+        lux_ventanas = {}
+        for ventana in ventanas:
+            orientacion_ventana = ventanas[ventana]['orientacion']
+
+            print(azimut, orientacion_ventana - grados_lux_directa, orientacion_ventana + grados_lux_directa)
+
+            if orientacion_ventana - grados_lux_directa <= azimut <= orientacion_ventana + grados_lux_directa: # Si el sol se encuentra a entre grados_lux_directa grados
+                lux_ventanas[ventana] = lux_max * math.sin(math.radians(elevacion))
+            else:
+                lux_ventanas[ventana]  = lux_ambiente / 2 # Divido entre dos porque lo normal es que si no entra la luz directa, sea menor el numero de lux
+
+        lux_final_habitaculo = max(lux_ventanas.values())
+
+        return round(lux_final_habitaculo, 2)

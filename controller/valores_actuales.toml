@@ -1,8 +1,8 @@
-[valores]
-habitaculo = "cocina"
-temperatura = 35.41
-humedad = 40.22
+[valores_magnitudes]
+temperatura = 32.29
+humedad = 53.26
+lux = 4465.1
 
-[actuadores]
+[estado_actuadores]
 persiana = 90
 luz = 0

@@ -1,9 +1,6 @@
-from handlers.toml_handler import TOMLHandler
-from handlers.logger_handler import LoggerHandler
-import logging
+from handlers.pvlib_handler import PVlibHandler
 
 
-loggerHandler = LoggerHandler('pruebas.log', 'pruebas', logging.DEBUG)
-config_tomlHandler = TOMLHandler('config.toml', loggerHandler)
+pvlibHandler = PVlibHandler(latitud=0, longitud=1, timezone='Europe/Madrid')
 
-print(config_tomlHandler.obtener_valores_seccion('ventanas'))
+print(vars(pvlibHandler))

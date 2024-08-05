@@ -11,7 +11,7 @@ from handlers.logger_handler import LoggerHandler
 def main():
 
     # Invocación de handlers
-    datetime_handler = DatetimeHandler('2024-08-03 16:30:00')
+    datetime_handler = DatetimeHandler('2024-08-04 13:44:00')
     loggerHandler = LoggerHandler('generation.log', 'generación', logging.INFO)
     valores_actuales_tomlHandler = TOMLHandler('valores_actuales.toml', loggerHandler)
     config_tomlHandler = TOMLHandler('config.toml', loggerHandler)
@@ -41,15 +41,16 @@ def main():
     print(f"Humedad: {valor_humedad}")
 
     # LUX # TODO
-    datos_solares = PVlibHandler()
-    print(datos_solares.obtener_lux(datetime_handler, config_tomlHandler))
+    datos_solares = PVlibHandler(logger=True)
+    valor_lux = datos_solares.obtener_lux(datetime_handler, config_tomlHandler)
+
+    print(f"Lux: {valor_lux}")
 
     # esto devuelve el dataframe de antes. Pero ahora tengo que hacer funciones para obtener los lux dependiendo de estos parámetros 
 
-
-    valores_actuales_tomlHandler.establecer_valor('valores', 'habitaculo', HABITACULO)
-    valores_actuales_tomlHandler.establecer_valor('valores', 'temperatura', valor_temperatura)
-    valores_actuales_tomlHandler.establecer_valor('valores', 'humedad', valor_humedad)
+    valores_actuales_tomlHandler.establecer_valor('valores_magnitudes', 'temperatura', valor_temperatura)
+    valores_actuales_tomlHandler.establecer_valor('valores_magnitudes', 'humedad', valor_humedad)
+    valores_actuales_tomlHandler.establecer_valor('valores_magnitudes', 'lux', valor_lux)
 
 
 

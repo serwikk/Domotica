@@ -4,13 +4,18 @@ import pandas as pd
 import math
 from handlers.datetime_handler import DatetimeHandler
 from handlers.csv_handler import CSVHandler
+import logging
+from handlers.logger_handler import LoggerHandler
 
 class PVlibHandler:
 
-    def __init__(self, latitud=42.84419, longitud=-2.68602, timezone = 'Europe/Madrid') -> None:
+    def __init__(self, latitud=42.84419, longitud=-2.68602, timezone = 'Europe/Madrid', logger=False) -> None:
         self.latitud = latitud
         self.longitud = longitud
         self.timezone = timezone
+
+        if logger:
+            self.loggerHandler = LoggerHandler('pvlib.log', 'pvlib', logging.INFO)
 
 
     def obtener_valores_posicion_solar_dia_completo(self, dia: str, intervalo: int = 10):
@@ -65,16 +70,14 @@ class PVlibHandler:
         lux_max = config_tomlHandler.obtener_valor('lux', 'lux_max_cenit')
         lux_artificial = config_tomlHandler.obtener_valor('lux', 'lux_artificial')
 
-        print(f"Elevación: {elevacion:.02f}º, Azimut: {azimut:.02f}º")
+        # logging.info(f"Elevación: {elevacion:.02f}º, Azimut: {azimut:.02f}º")
 
         # Obtenemos la lux del ambiente
         lux_ambiente = lux_max * math.sin(math.radians(elevacion))
 
-        print(f"Lux ambiente: {lux_ambiente}")
+        # logging.info(f"Lux ambiente: {lux_ambiente}")
 
         ventanas = config_tomlHandler.obtener_valores_seccion('ventanas')
-
-        print(ventanas)
 
         grados_lux_directa = config_tomlHandler.obtener_valor('lux', 'grados_lux_directa')
 
@@ -82,7 +85,7 @@ class PVlibHandler:
         for ventana in ventanas:
             orientacion_ventana = ventanas[ventana]['orientacion']
 
-            print(azimut, orientacion_ventana - grados_lux_directa, orientacion_ventana + grados_lux_directa)
+            # logging.debug(azimut, orientacion_ventana - grados_lux_directa, orientacion_ventana + grados_lux_directa)
 
             if orientacion_ventana - grados_lux_directa <= azimut <= orientacion_ventana + grados_lux_directa: # Si el sol se encuentra a entre grados_lux_directa grados
                 lux_ventanas[ventana] = lux_max * math.sin(math.radians(elevacion))

@@ -1,0 +1,8 @@
+
+
+
+modo actuador off => #6C757D
+
+stand by => #B2890D
+
+on => #28A745

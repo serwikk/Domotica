@@ -72,7 +72,7 @@ def main():
     
     datos_finales = transformar_datos(data)
 
-    es.index(index="prueba", document=datos_finales)
+    es.index(index="precio_luz", document=datos_finales)
 
 
 if __name__ == "__main__":
